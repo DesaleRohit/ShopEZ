@@ -13,10 +13,8 @@ body {
 header {
   background: rgba(50, 50, 50, 0.9);
   color: white;
-  padding: 20px;
+  padding: 20px 40px;
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
   justify-content: space-between;
   align-items: center;
   position: sticky;
@@ -25,43 +23,37 @@ header {
 }
 
 header h1 {
-  font-size: 1.5rem;
-  flex: 1 1 200px;
+  font-size: 28px;
 }
 
 #search {
-  padding: 10px;
-  flex: 2 1 250px;
-  font-size: 1rem;
+  padding: 12px;
+  width: 450px;
+  font-size: 16px;
   border: none;
   border-radius: 8px;
-  min-width: 180px;
 }
 
 #cart {
-  font-size: 1.2rem;
+  font-size: 20px;
   cursor: pointer;
-  flex: 0 1 auto;
 }
 
 nav {
-  background: #ffffff;
-  padding: 20px;
+  background: rgb(255, 255, 255);
+  padding: 20px 40px;
   text-align: center;
-  margin-bottom: 30px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
+  margin-bottom: 30px; 
 }
 
 .category {
   background: rgba(200, 200, 200, 0.4);
   border: none;
+  margin: 15px 20px;
   padding: 14px 24px;
   border-radius: 8px;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 18px;
   transition: 0.3s;
 }
 
@@ -71,11 +63,10 @@ nav {
 }
 
 .product-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 30px;
-  padding: 0 20px 40px 20px;
+  padding: 0 40px 40px 40px;
 }
 
 .product {
@@ -85,19 +76,17 @@ nav {
   padding: 20px;
   text-align: center;
   box-shadow: 0 0 12px rgba(0,0,0,0.1);
-  flex: 1 1 calc(25% - 30px); /*four mobile view*/
-  max-width: calc(25% - 30px);
+  height: 400px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: auto;
 }
 
 .product img {
-  width: 100%;
-  height: 200px;
-  object-fit: contain;
-  border-radius: 10px;
+    width: 100%;
+    height: 200px;     /* Adjust height as needed */
+    object-fit: contain;
+    border-radius: 10px;
 }
 
 .product h3 {
@@ -105,17 +94,16 @@ nav {
 }
 
 .product p {
-  font-size: 1rem;
+  font-size: 18px;
   margin-bottom: 10px;
 }
 
 .add-cart, .buy-now {
   margin: 5px;
-  padding: 10px;
+  padding: 8px 12px;
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  font-size: 0.95rem;
 }
 
 .add-cart {
