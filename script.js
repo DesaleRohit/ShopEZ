@@ -1,35 +1,80 @@
 const products = [
+  // Smartphones
   {
-    name: "Phone X",
-    price: 25000,
-    image: "images/phone1.jpg"
+    name: "iPhone 14",
+    price: 69999,
+    image: "https://m.media-amazon.com/images/I/71yzJoE7WlL._SX679_.jpg"
   },
   {
-    name: "Casual Shirt",
+    name: "Samsung Galaxy S21",
+    price: 52999,
+    image: "https://m.media-amazon.com/images/I/81kfA-GtWwL._SX679_.jpg"
+  },
+  {
+    name: "Redmi Note 13",
+    price: 15999,
+    image: "https://m.media-amazon.com/images/I/81weRj535kL._SL1500_.jpg"
+  },
+  {
+    name: "OnePlus Nord CE 3",
+    price: 24999,
+    image: "https://m.media-amazon.com/images/I/6175SlKKECL._SL1500_.jpg"
+  },
+
+  // Fashion
+  {
+    name: "Men's Denim Jacket",
+    price: 1299,
+    image: "https://m.media-amazon.com/images/I/71-OrSlxGOL._SY741_.jpg"
+  },
+  {
+    name: "Women's Kurti Set",
+    price: 1499,
+    image: "https://m.media-amazon.com/images/I/71mp9GNvFGL._SX569_.jpg"
+  },
+  {
+    name: "Sneakers",
     price: 999,
-    image: "images/shirt1.webp"
+    image: "https://m.media-amazon.com/images/I/71bfSLiEkpL._SY695_.jpg"
   },
   {
-    name: "Laptop Pro",
-    price: 55000,
-    image: "images/laptop1.jpg"
+    name: "Backpack",
+    price: 899,
+    image: "https://m.media-amazon.com/images/I/71maWXZscfL._SL1500_.jpg"
+  },
+
+  // Laptops
+  {
+    name: "HP Victus Ryzen 5",
+    price: 57990,
+    image: "https://m.media-amazon.com/images/I/71hC42cKbsL._SL1500_.jpg"
   },
   {
-    name: "Phone Y",
-    price: 18500,
-    image: "images/phone1.jpg"
+    name: "Lenovo IdeaPad Slim 5",
+    price: 48990,
+    image: "https://m.media-amazon.com/images/I/616BhYEGRHL._SL1080_.jpg"
   },
   {
-    name: "Formal Shirt",
-    price: 1399,
-    image: "images/shirt1.jpg"
+    name: "MacBook Air M1",
+    price: 84990,
+    image: "https://m.media-amazon.com/images/I/71jG+e7roXL._SX679_.jpg"
   },
   {
-    name: "Gaming Laptop",
-    price: 73000,
-    image: "images/laptop1.avif"
+    name: "ASUS ROG Strix",
+    price: 94990,
+    image: "https://m.media-amazon.com/images/I/71kUn311DqL._SL1500_.jpg"
   }
 ];
+
+// Shuffle function to randomize array order
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+}
+
+shuffleArray(products); // Shuffle before rendering
 
 const productGrid = document.querySelector(".product-grid");
 
