@@ -20,6 +20,11 @@ const products = [
     price: 24999,
     image: "https://m.media-amazon.com/images/I/6175SlKKECL._SL1500_.jpg"
   },
+  {
+    name: "Samsung S24 Ultra",
+    price: 79999,
+    image: "https://m.media-amazon.com/images/I/71Nwtop9jtL._SL1500_.jpg"
+  },
 
   // Fashion
   {
@@ -63,6 +68,22 @@ const products = [
     name: "ASUS ROG Strix",
     price: 94990,
     image: "https://m.media-amazon.com/images/I/71kUn311DqL._SL1500_.jpg"
+  },
+  //Furniture
+  {
+    name: "Long Roking chair",
+    price: 999,
+    image: "https://m.media-amazon.com/images/I/41xSNXKBXBL.jpg",
+  },
+  {
+    name: "Sony BRAVIA 3 Series 4K Ultra HD (Black)",
+    price: 73990,
+    image:"https://m.media-amazon.com/images/I/81ucmUnawvL._SL1500_.jpg",
+  },
+  {
+    name: "Bell the Bell Jar",
+    price: 299,
+    image: "https://m.media-amazon.com/images/I/71xz5j-4RSL._SL1500_.jpg",
   }
 ];
 
