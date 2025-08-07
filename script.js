@@ -76,7 +76,7 @@ const products = [
     image: "https://m.media-amazon.com/images/I/41xSNXKBXBL.jpg",
   },
   {
-    name: "Sony BRAVIA 3 Series 4K Ultra HD (Black)",
+    name: "Sony BRAVIA 4K Ultra HD (Black)",
     price: 73990,
     image:"https://m.media-amazon.com/images/I/81ucmUnawvL._SL1500_.jpg",
   },
@@ -84,7 +84,7 @@ const products = [
     name: "Bell the Bell Jar",
     price: 299,
     image: "https://m.media-amazon.com/images/I/71xz5j-4RSL._SL1500_.jpg",
-  }
+  },
 ];
 
 // Shuffle function to randomize array order

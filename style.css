@@ -2,7 +2,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Arial', sans-serif;
+  font-family:Georgia, 'Times New Roman', Times, serif
 }
 
 body {
@@ -16,6 +16,7 @@ header {
   background: rgba(50, 50, 50, 0.5);
   color: #ffffff;
   padding: 20px 40px;
+  margin-bottom: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -29,12 +30,18 @@ header h1 {
   font-size: 28px;
 }
 
+.search-div {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  margin-bottom: 20px;
+}
 #search {
   padding: 12px;
   width: 100%;
   max-width: 450px;
   font-size: 16px;
-  border: none;
+  border: solid rgb(72, 72, 72);
   border-radius: 8px;
 }
 
@@ -53,7 +60,7 @@ nav {
 }
 
 /* Category Buttons */
-.category {
+.smartBtn, .fashionBtn, .laptopBtn, .furnitureBtn {
   background: rgba(200, 200, 200, 0.4);
   border: none;
   margin: 15px 20px;
@@ -64,7 +71,7 @@ nav {
   transition: 0.3s;
 }
 
-.category:hover {
+.smartBtn:hover , .fashionBtn:hover, .laptopBtn:hover, .furnitureBtn:hover {
   background: #000;
   color: white;
 }
@@ -121,11 +128,44 @@ nav {
 
 .add-cart {
   background: #444;
-  color: white;
+  color: rgb(255, 255, 255);
 }
 
 .buy-now {
   background: transparent;
   border: 1px solid #444;
   color: #444;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: rgba(50, 50, 50, 0.8);
+  min-width: 160px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  z-index: 999;
+  padding: 0px;
+}
+
+.dropdown-content li {
+  padding: 10px;
+  list-style:none;
+  border-bottom: 1px solid #eee;
+}
+
+.dropdown-content li:hover {
+  background-color: #ffffff;
+  color: #000;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
 }
