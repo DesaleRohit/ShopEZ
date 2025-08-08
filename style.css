@@ -2,7 +2,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family:Georgia, 'Times New Roman', Times, serif
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 body {
@@ -10,7 +10,7 @@ body {
   color: #333;
 }
 
-/* Liquid Glass Header */
+/* Header with Glass Effect */
 header {
   backdrop-filter: blur(10px);
   background: rgba(50, 50, 50, 0.5);
@@ -36,6 +36,7 @@ header h1 {
   padding: 20px;
   margin-bottom: 20px;
 }
+
 #search {
   padding: 12px;
   width: 100%;
@@ -50,17 +51,15 @@ header h1 {
   cursor: pointer;
 }
 
-/* Product Grid: 4 per row on desktop, responsive on smaller screens */
 .product-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 20px;
   padding: 0 20px 40px 20px;
-  max-width: 1300px;   /* Ensures 4 items max on wide screens */
+  max-width: 1300px;
   margin: 0 auto;
 }
 
-/* Product Card */
 .product {
   background: rgba(255, 255, 255, 0.85);
   border: 1px solid #ccc;
@@ -90,7 +89,6 @@ header h1 {
   margin-bottom: 10px;
 }
 
-/* Buttons */
 .add-cart,
 .buy-now {
   margin: 5px;
@@ -102,7 +100,7 @@ header h1 {
 
 .add-cart {
   background: #444;
-  color: rgb(255, 255, 255);
+  color: white;
 }
 
 .buy-now {
@@ -131,8 +129,9 @@ header h1 {
 
 .dropdown-content li {
   padding: 10px;
-  list-style:none;
+  list-style: none;
   border-bottom: 1px solid #eee;
+  cursor: pointer;
 }
 
 .dropdown-content li:hover {
