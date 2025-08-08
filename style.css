@@ -50,23 +50,6 @@ header h1 {
   cursor: pointer;
 }
 
-/* Category Buttons */
-.smartBtn, .fashionBtn, .laptopBtn, .furnitureBtn {
-  background: rgba(200, 200, 200, 0.4);
-  border: none;
-  margin: 15px 20px;
-  padding: 14px 24px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 18px;
-  transition: 0.3s;
-}
-
-.smartBtn:hover , .fashionBtn:hover, .laptopBtn:hover, .furnitureBtn:hover {
-  background: #000;
-  color: white;
-}
-
 /* Product Grid: 4 per row on desktop, responsive on smaller screens */
 .product-grid {
   display: grid;
