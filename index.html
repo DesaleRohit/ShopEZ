@@ -3,36 +3,54 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ShopEZ</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>ShopEZ - Complete Layout</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
-    <div class="dropdown">
-      <h1 class="categories">ShopEZ</h1>
-      <ul class="dropdown-content">
-        <li onclick="filterByCategory('All')">All</li>
-        <li onclick="filterByCategory('Smartphones')">Smartphones</li>
-        <li onclick="filterByCategory('Fashion')">Fashion</li>
-        <li onclick="filterByCategory('Laptops')">Laptops</li>
-        <li onclick="filterByCategory('Furniture')">Furniture</li>
-      </ul>
-    </div>
+    <div class="logo">ShopEZ</div>
 
-    <div id="cart">
+     <div id="cart">
       <img src="assets/search.svg" alt="" width="25vw">
       <span id="cart-count">0</span>
     </div>
   </header>
 
-  <div class="search-div">
-    <input type="text" id="search" placeholder="Search products..." />
+  <div class="container">
+    <!-- Navigation Buttons -->
+    <div class="btn">
+      <button onclick="scrollToCategory('smartphones')">Smartphones</button>
+      <button onclick="scrollToCategory('laptops')">Laptops</button>
+      <button onclick="scrollToCategory('fashion')">Fashion</button>
+      <button onclick="scrollToCategory('furniture')">Furniture</button>
+    </div>
+
+    <!-- Smartphones -->
+    <section id="smartphones" class="category-section">
+      <h2 class="category-title">SMARTPHONES</h2>
+      <div class="product-grid" id="smartphones-grid"></div>
+    </section>
+
+    <!-- Laptops -->
+    <section id="laptops" class="category-section">
+      <h2 class="category-title">LAPTOPS</h2>
+      <div class="product-grid" id="laptops-grid"></div>
+    </section>
+
+    <!-- Fashion -->
+    <section id="fashion" class="category-section">
+      <h2 class="category-title">FASHION</h2>
+      <div class="product-grid" id="fashion-grid"></div>
+    </section>
+
+    <!-- Furniture -->
+    <section id="furniture" class="category-section">
+      <h2 class="category-title">FURNITURE & MORE</h2>
+      <div class="product-grid" id="furniture-grid"></div>
+    </section>
   </div>
 
-  <main class="product-grid">
-    <!-- Products will be injected here -->
-  </main>
-
-   <script src="script.js"></script>
+  <script src="script.js" ></script>
 </body>
 </html>
