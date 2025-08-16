@@ -54,8 +54,7 @@
      transition: all 0.3s ease;
  }
 
- .btn button:hover,
- .btn button.active {
+ .btn button:hover {
      background: #212529;
      color: #fff;
      border-color: #212529;

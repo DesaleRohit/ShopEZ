@@ -8,31 +8,38 @@ const products = [
       { name: "VIVO X200 FE 5G", price: 52999, category: "smartphones", image: "https://m.media-amazon.com/images/I/71QkSIVns8L._SL1500_.jpg" },
       { name: "Google Pixel 9", price: 99999, category: "smartphones", image: "https://m.media-amazon.com/images/I/51xiDpq5ODL._SL1000_.jpg" },
 
-      { name: "Men's Denim Jacket", price: 1299, category: "fashion", image: "https://m.media-amazon.com/images/I/71-OrSlxGOL._SY741_.jpg" },
-      { name: "Women's Kurti Set", price: 1499, category: "fashion", image: "https://m.media-amazon.com/images/I/71mp9GNvFGL._SX569_.jpg" },
-      { name: "Unisex Sneakers", price: 999, category: "fashion", image: "https://m.media-amazon.com/images/I/71bfSLiEkpL._SY695_.jpg" },
-      { name: "Designer Backpack", price: 899, category: "fashion", image: "https://m.media-amazon.com/images/I/71maWXZscfL._SL1500_.jpg" },
-      { name: "Leather Wallet", price: 799, category: "fashion", image: "https://m.media-amazon.com/images/I/71d5xrJNlTL._UX679_.jpg" },
-      { name: "Women's Handbag", price: 1499, category: "fashion", image: "https://m.media-amazon.com/images/I/71I1VXjGvLL._UY695_.jpg" },
-      { name: "Men's Formal Shoes", price: 1899, category: "fashion", image: "https://m.media-amazon.com/images/I/71vzVw1gBmL._UY695_.jpg" },
-      { name: "Women's Sunglasses", price: 699, category: "fashion", image: "https://m.media-amazon.com/images/I/71dX5q3b8QL._UX679_.jpg" },
+      { name: "Bose New QuietComfor", price: 12999, category: "headphones", image: "https://m.media-amazon.com/images/I/61qIEvCy6+L._SL1500_.jpg" },
+      { name: "Marshall Motif II ANC", price: 14999, category: "headphones", image: "https://m.media-amazon.com/images/I/71t+kVzovEL._SL1500_.jpg" },
+      { name: "Sony WH-1000XM4", price: 19999, category: "headphones", image: "https://m.media-amazon.com/images/I/61UgZSYRllL._SL1500_.jpg" },
+      { name: "JBL Award Wining Tour Pro 3", price: 18999, category: "headphones", image: "https://m.media-amazon.com/images/I/613+i9dtAML._SL1500_.jpg" },
+      { name: "Samsung Galaxy Buds 3 Pro", price: 17999, category: "headphones", image: "https://m.media-amazon.com/images/I/71ke2BEdIhL._SL1500_.jpg" },
+      { name: "Apple AirPods 4 Wireless Earbuds", price: 19999, category: "headphones", image: "https://m.media-amazon.com/images/I/61oCISLE+PL._SL1500_.jpg" },
+      { name: "Skullcandy Crusher ANC 2", price: 13899, category: "headphones", image: "https://m.media-amazon.com/images/I/71hj2+aMMrL._SL1500_.jpg" },
+      { name: "PULSE Explore", price: 19699, category: "headphones", image: "https://m.media-amazon.com/images/I/51Bj-vJ4DoL._SL1500_.jpg" },
 
       { name: "HP Victus Ryzen 5", price: 57990, category: "laptops", image: "https://m.media-amazon.com/images/I/71hC42cKbsL._SL1500_.jpg" },
       { name: "Lenovo IdeaPad Slim 5", price: 48990, category: "laptops", image: "https://m.media-amazon.com/images/I/616BhYEGRHL._SL1080_.jpg" },
       { name: "MacBook Air M1", price: 84990, category: "laptops", image: "https://m.media-amazon.com/images/I/71jG+e7roXL._SX679_.jpg" },
       { name: "ASUS ROG Strix", price: 94990, category: "laptops", image: "https://m.media-amazon.com/images/I/71kUn311DqL._SL1500_.jpg" },
+      { name: "Lenovo LOQ 2024", price: 92999, category: "laptops", image: "https://m.media-amazon.com/images/I/8133GVuhgwL._SL1500_.jpg" },
+      { name: "HP OMEN Gaming AI Laptop", price: 120999, category: "laptops", image: "https://m.media-amazon.com/images/I/71loIIvt9AL._SL1500_.jpg" },
+      { name: "ASUS ROG Strix G16", price: 184999, category: "laptops", image: "https://m.media-amazon.com/images/I/71PYcEAwWgL._SL1500_.jpg" },
+      { name: "Apple 2024 MacBook Pro", price: 239990, category: "laptops", image: "https://m.media-amazon.com/images/I/61opqQEBUxL._SL1500_.jpg" },
 
-      { name: "Long Rocking Chair", price: 999, category: "furniture", image: "https://m.media-amazon.com/images/I/41xSNXKBXBL.jpg" },
-      { name: "Sony BRAVIA 4K Ultra HD", price: 73990, category: "furniture", image: "https://m.media-amazon.com/images/I/81ucmUnawvL._SL1500_.jpg" },
-      { name: "Decorative Bell Jar", price: 299, category: "furniture", image: "https://m.media-amazon.com/images/I/71xz5j-4RSL._SL1500_.jpg" },
-      { name: "Modern Coffee Table", price: 12999, category: "furniture", image: "https://m.media-amazon.com/images/I/81FbLc6Qn7L._SL1500_.jpg" },
-      { name: "Ergonomic Office Chair", price: 8999, category: "furniture", image: "https://m.media-amazon.com/images/I/71RzOGi0sML._SL1500_.jpg" },
+      { name: "Seiko Analog Green Dial Men Watch", price: 19999, category: "Watch", image: "https://m.media-amazon.com/images/I/61UL5HZ6TOL._SL1032_.jpg" },
+      { name: "Fashion Mechanical Wrist Watch", price: 12499, category: "Watch", image: "https://m.media-amazon.com/images/I/81Fgkp+VkmL._SX569_.jpg" },
+      { name: "OnePlus Watch 2", price: 15999, category: "Watch", image: "https://m.media-amazon.com/images/I/71I3RQGHDrL._SL1500_.jpg" },
+      { name: "Casio Edifice EFR-556DB", price: 11999, category: "Watch", image: "https://m.media-amazon.com/images/I/71T82VDRqGL._SX522_.jpg" },
+      { name: "TSAR BOMBA Men's Automatic Watch", price: 40000, category: "Watch", image: "https://m.media-amazon.com/images/I/71HzgXvxxXL._SX679_.jpg" },
+      { name: "FEICE Men Automatic Skeleton Watch", price: 29745, category: "Watch", image: "https://m.media-amazon.com/images/I/71TvFLThdsL._SX679_.jpg" },
+      { name: "Titan Stainless Steel Bracelet Watch", price: 30000, category: "Watch", image: "https://m.media-amazon.com/images/I/71lQzhSLMGL._SL1500_.jpg" },
+      { name: "Fastrack Autumn Men's Watch", price: 12999, category: "Watch", image: "https://m.media-amazon.com/images/I/51ksEujI7UL._SX679_.jpg" },
     ];
 
     const smartphonesGrid = document.getElementById("smartphones-grid");
     const laptopsGrid = document.getElementById("laptops-grid");
-    const fashionGrid = document.getElementById("fashion-grid");
-    const furnitureGrid = document.getElementById("furniture-grid");
+    const headphonesGrid = document.getElementById("headphones-grid");
+    const WatchGrid = document.getElementById("Watch-grid");
     const cartDisplay = document.getElementById("cart-count");
     let cartCount = 0;
 
@@ -68,13 +75,13 @@ const products = [
     function renderAllProducts() {
       const smartphones = products.filter(p => p.category === "smartphones");
       const laptops = products.filter(p => p.category === "laptops");
-      const fashion = products.filter(p => p.category === "fashion");
-      const furniture = products.filter(p => p.category === "furniture");
+      const headphones = products.filter(p => p.category === "headphones");
+      const Watch = products.filter(p => p.category === "Watch");
       
       renderProductsForCategory(smartphones, smartphonesGrid);
       renderProductsForCategory(laptops, laptopsGrid);
-      renderProductsForCategory(fashion, fashionGrid);
-      renderProductsForCategory(furniture, furnitureGrid);
+      renderProductsForCategory(headphones, headphonesGrid);
+      renderProductsForCategory(Watch, WatchGrid);
     }
 
     // Scroll to category function
