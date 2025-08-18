@@ -4,21 +4,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>ShopEZ</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
+  <script defer src="script.js" ></script>
 </head>
 <body>
   <header>
-    <div class="logo">ShopEZ</div>
+<div class="logo">ShopEZ</div>
 
-     <div id="cart">
+    <div id="cart">
       <img src="assets/search.svg" alt="" width="25vw">
       <span id="cart-count">0</span>
     </div>
   </header>
 
   <div class="container">
-    <!-- Navigation Buttons -->
     <div class="btn">
       <button onclick="scrollToCategory('smartphones')">Smartphones</button>
       <button onclick="scrollToCategory('laptops')">Laptops</button>
@@ -26,31 +25,47 @@
       <button onclick="scrollToCategory('Watch')">Watches</button>
     </div>
 
-    <!-- Smartphones -->
     <section id="smartphones" class="category-section">
       <h2 class="category-title">SMARTPHONES</h2>
       <div class="product-grid" id="smartphones-grid"></div>
     </section>
 
-    <!-- Laptops -->
     <section id="laptops" class="category-section">
       <h2 class="category-title">LAPTOPS</h2>
       <div class="product-grid" id="laptops-grid"></div>
     </section>
 
-    <!-- Fashion -->
     <section id="headphones" class="category-section">
       <h2 class="category-title">HEADPHONES</h2>
       <div class="product-grid" id="headphones-grid"></div>
     </section>
 
-    <!-- Watches -->
     <section id="Watch" class="category-section">
       <h2 class="category-title">Watches</h2>
       <div class="product-grid" id="Watch-grid"></div>
     </section>
   </div>
+  
+  <div id="cart-overlay" class="overlay"></div>
+  <div id="cart-drawer" class="cart-drawer">
+    <div class="cart-header">
+      <h2>Your Cart</h2>
+      <button id="close-cart">&times;</button>
+    </div>
+    <div class="cart-items">
+      <div class="empty-cart">
+        <i class="shopping-cart" style="font-size: 40px; margin-bottom: 15px;"></i>
+        <p>Your cart is empty</p>
+        <p>Start shopping to add items</p>
+      </div>
+    </div>
+    <div class="cart-total">
+      <h3>Total: ₹<span id="total-amount">0</span></h3>
+      <button id="checkout-btn">Checkout</button>
+    </div>
+  </div>
 
-  <script src="script.js" ></script>
+
+  
 </body>
 </html>

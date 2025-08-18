@@ -37,11 +37,133 @@ const products = [
   { name: "Fastrack Autumn Men's Watch", price: 12999, category: "Watch", image: "https://m.media-amazon.com/images/I/51ksEujI7UL._SX679_.jpg" },
 ];
 
-let cartCount = 0;
 
-let smartphonesGrid, laptopsGrid, headphonesGrid, WatchGrid, cartDisplay;
+let cart = []; // each item: { name, price, image, qty }
+const cartCountEl = document.getElementById("cart-count");
+const cartIcon = document.getElementById("cart");
+const cartDrawer = document.getElementById("cart-drawer");
+const cartOverlay = document.getElementById("cart-overlay");
+const cartItemsContainer = document.querySelector(".cart-items");
+const totalAmountEl = document.getElementById("total-amount");
+const checkoutBtn = document.getElementById("checkout-btn");
+const closeCartBtn = document.getElementById("close-cart");
 
-// create product card element
+// product grids
+let smartphonesGrid = document.getElementById("smartphones-grid");
+let laptopsGrid = document.getElementById("laptops-grid");
+let headphonesGrid = document.getElementById("headphones-grid");
+let WatchGrid = document.getElementById("Watch-grid");
+
+function updateCartCount() {
+  // show total quantity of items in cart
+  const totalQty = cart.reduce((s, item) => s + item.qty, 0);
+  cartCountEl.textContent = totalQty;
+}
+
+function calculateTotal() {
+  return cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+}
+
+function showEmptyCartMessage() {
+  cartItemsContainer.innerHTML = `
+    <div class="empty-cart">
+      <i class="shopping-cart" style="font-size: 40px; margin-bottom: 15px;"></i>
+      <p>Your cart is empty</p>
+      <p>Start shopping to add items</p>
+    </div>
+  `;
+  totalAmountEl.textContent = "0";
+}
+
+function renderCartItems() {
+  // if empty
+  if (cart.length === 0) {
+    showEmptyCartMessage();
+    return;
+  }
+
+  cartItemsContainer.innerHTML = ""; 
+  cart.forEach((item, idx) => {
+    const itemEl = document.createElement("div");
+    itemEl.className = "cart-item";
+    itemEl.innerHTML = `
+      <img src="${item.image}" alt="${item.name}">
+      <div class="cart-item-details">
+        <h4>${item.name}</h4>
+        <p>₹${(item.price).toLocaleString()} × ${item.qty}</p>
+        <div style="margin-top:8px;">
+          <button class="qty-decrease" data-idx="${idx}">-</button>
+          <span style="margin:0 8px;">${item.qty}</span>
+          <button class="qty-increase" data-idx="${idx}">+</button>
+        </div>
+      </div>
+      <div class="cart-item-actions">
+        <button class="remove-item" data-idx="${idx}">Remove</button>
+      </div>
+    `;
+    cartItemsContainer.appendChild(itemEl);
+  });
+
+  const decButtons = cartItemsContainer.querySelectorAll(".qty-decrease");
+  const incButtons = cartItemsContainer.querySelectorAll(".qty-increase");
+  const removeButtons = cartItemsContainer.querySelectorAll(".remove-item");
+
+  decButtons.forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      const i = Number(e.currentTarget.dataset.idx);
+      if (cart[i].qty > 1) {
+        cart[i].qty -= 1;
+      } else {
+        // if qty would go to zero, remove item completely
+        cart.splice(i, 1);
+      }
+      refreshCartUI();
+    });
+  });
+
+  incButtons.forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      const i = Number(e.currentTarget.dataset.idx);
+      cart[i].qty += 1;
+      refreshCartUI();
+    });
+  });
+
+  removeButtons.forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      const i = Number(e.currentTarget.dataset.idx);
+      cart.splice(i, 1);
+      refreshCartUI();
+    });
+  });
+
+  // update total
+  totalAmountEl.textContent = calculateTotal().toLocaleString();
+}
+
+function refreshCartUI() {
+  updateCartCount();
+  renderCartItems();
+}
+
+// ---------- Add to Cart logic ----------
+function addToCart(product) {
+  // check if product already in cart by name
+  const found = cart.find(item => item.name === product.name);
+  if (found) {
+    found.qty += 1;
+  } else {
+    cart.push({
+      name: product.name,
+      price: product.price,
+      image: product.image,
+      qty: 1
+    });
+  }
+  refreshCartUI();
+}
+
+// ---------- Render product cards ----------
 function createProductCard(product) {
   const productCard = document.createElement("div");
   productCard.classList.add("product");
@@ -57,15 +179,20 @@ function createProductCard(product) {
 
   const addCartBtn = productCard.querySelector(".add-cart");
   addCartBtn.addEventListener("click", () => {
-    cartCount++;
-    if (cartDisplay) cartDisplay.textContent = cartCount;
+    addToCart(product);
+
+    addCartBtn.textContent = "Added ✓";
+    setTimeout(() => addCartBtn.textContent = "Add to Cart", 700);
   });
 
   return productCard;
 }
 
-// VERY SIMPLE: loop once and append to proper grid
 function renderAllProducts() {
+  if (!smartphonesGrid || !laptopsGrid || !headphonesGrid || !WatchGrid) {
+    console.error("One or more product grids not found in DOM.");
+    return;
+  }
 
   products.forEach(product => {
     const card = createProductCard(product);
@@ -79,11 +206,52 @@ function renderAllProducts() {
     } else if (product.category === "Watch") {
       WatchGrid.appendChild(card);
     }
-    
   });
 }
 
-// ---- Behavior ----
+// ---------- Cart drawer open/close ----------
+function openCartDrawer() {
+  cartOverlay.style.display = "block";
+  cartDrawer.style.right = "0";
+  refreshCartUI();
+}
+
+function closeCartDrawer() {
+  cartOverlay.style.display = "none";
+  cartDrawer.style.right = "-400px";
+}
+
+if (cartIcon) {
+  cartIcon.addEventListener("click", openCartDrawer);
+}
+if (cartOverlay) {
+  cartOverlay.addEventListener("click", closeCartDrawer);
+}
+if (closeCartBtn) {
+  closeCartBtn.addEventListener("click", closeCartDrawer);
+}
+
+// ---------- Checkout ----------
+if (checkoutBtn) {
+  checkoutBtn.addEventListener("click", () => {
+    if (cart.length === 0) {
+      alert("Your cart is empty. Add some items first.");
+      return;
+    }
+
+    
+    const total = calculateTotal();
+    const confirmed = confirm(`Total payable: ₹${total.toLocaleString()}\n\nProceed to checkout?`);
+    if (confirmed) {
+      
+      alert("Thank you for your purchase! Order placed successfully.");
+      cart = []; // clear cart
+      refreshCartUI();
+      closeCartDrawer();
+    }
+  });
+}
+
 function scrollToCategory(categoryId) {
   const element = document.getElementById(categoryId);
   if (element) {
@@ -91,13 +259,6 @@ function scrollToCategory(categoryId) {
   }
 }
 
-// ---- Init ----
-document.addEventListener("DOMContentLoaded", () => {
-  smartphonesGrid = document.getElementById("smartphones-grid");
-  laptopsGrid = document.getElementById("laptops-grid");
-  headphonesGrid = document.getElementById("headphones-grid");
-  WatchGrid = document.getElementById("Watch-grid");
-  cartDisplay = document.getElementById("cart-count");
-
-  renderAllProducts();
-});
+renderAllProducts();
+updateCartCount();
+showEmptyCartMessage();
