@@ -82,7 +82,7 @@ function renderCartItems() {
     return;
   }
 
-  cartItemsContainer.innerHTML = ""; 
+  cartItemsContainer.innerHTML = "";
   cart.forEach((item, idx) => {
     const itemEl = document.createElement("div");
     itemEl.className = "cart-item";
@@ -239,16 +239,33 @@ if (checkoutBtn) {
       return;
     }
 
-    
     const total = calculateTotal();
-    const confirmed = confirm(`Total payable: ₹${total.toLocaleString()}\n\nProceed to checkout?`);
-    if (confirmed) {
-      
-      alert("Thank you for your purchase! Order placed successfully.");
-      cart = []; // clear cart
-      refreshCartUI();
-      closeCartDrawer();
+    if (checkoutBtn) {
+      var name = prompt("Enter your name:");
+      if (!name) {
+        alert("Name is required to place the order.");
+        return;
+      } if (name) {
+        var mobile = prompt("Enter your mobile number:");
+        if (!mobile) {
+          alert("Mobile number is required to place the order.");
+          return;
+        }
+      } if (name) {
+        var address = prompt("Enter your address:");
+        if (!address) {
+          alert("Address is required to place the order.");
+          return;
+        }
+      }
+
     }
+    alert(`Customer Details:\nName: ${name} \nMobile: ${mobile} \nAddress: ${address} \nTotal Amount: ₹${total.toLocaleString()} \nThank you for your purchase! Order placed successfully.`);
+    cart = []; // clear cart
+    refreshCartUI();
+    closeCartDrawer();
+
+
   });
 }
 
